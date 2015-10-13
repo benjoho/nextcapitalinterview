@@ -1,0 +1,60 @@
+<template name="app">
+    <div class="wrapper">
+      <div class="left">
+        <div class="add-box">
+          Create a league:
+          <form>
+            League Name:<input id="name" type="text">
+            <button id="create-league" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              Create League
+            </button>
+          </form>
+        </div>
+        <div class="title-leagues"> Leagues: </div>
+        <table id="table-leagues" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">League Name</th>
+                <th>ID</th>
+              </tr>
+          </thead>
+          {{#each allLeagues}}
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric"><a href="/leagues/{{id}}">{{name}}</a></td>
+                <td>{{id}}</td>
+              </tr>
+            </tbody>
+          {{/each}}
+        </table>
+      </div>
+    <div class="right">
+      <div class="add-box">
+        Create a bowler:
+        <form>
+            Bowler Name:<input id="bowler-name" type="text">
+            <button id="create-bowler" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              Create Bowler
+          </button>
+        </form>
+      </div>
+      <div class="title-leagues"> Bowlers: </div>
+      <table id="table-leagues" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">Bowler's Name</th>
+              <th>ID</th>
+            </tr>
+        </thead>
+        {{#each allBowlers}}
+          <tbody>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+              <td>{{id}}</td>
+            </tr>
+          </tbody>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</template>

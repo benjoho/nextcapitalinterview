@@ -1,0 +1,21 @@
+<template name="bowlersList">
+  <div class="league-table">
+    <table id="table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Bowler's Name</th>
+            <th>ID</th>
+          </tr>
+      </thead>
+      {{setBowlers}}
+      {{#each getBowlers}}
+        <tbody>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+            <td>{{id}}</td>
+          </tr>
+        </tbody>
+      {{/each}}
+    </table>
+  </div>
+</template>

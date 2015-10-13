@@ -1,0 +1,21 @@
+<template name="leaguesList">
+  <div class="league-table">
+    <table id="table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">League Name</th>
+            <th>ID</th>
+          </tr>
+      </thead>
+      {{setLeagues}}
+      {{#each getLeagues}}
+        <tbody>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><a href="/leagues/{{id}}">{{name}}</a></td>
+            <td>{{id}}</td>
+          </tr>
+        </tbody>
+      {{/each}}
+    </table>
+  </div>
+</template>

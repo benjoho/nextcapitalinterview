@@ -1,0 +1,30 @@
+<template name="login">
+  <div class="login-box">
+    <img id="NC-logo" src="/images/NC_logo.svg">
+    <div id="title">
+      Bowling Jackpot
+    </div>
+    <form id="login-form" action="action">
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" id="email"/>
+          <label class="mdl-textfield__label" for="email">Email</label>
+        </div><br>
+        <div class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="password" id="password"/>
+          <label class="mdl-textfield__label" for="password">Password</label>
+        </div><br>
+        <button type="submit" id="login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Login
+        </button><br>
+        <a href="/create" id="create-account"> Sign up </a>
+    </form>
+    <!-- <h1> Create an account </h1>
+    <form id="register-form">
+      <div>
+        Email:<input id="email-register" type="text" name="username"><br>
+        Password:<input id="password-register" type="password" name="password"><br>
+        <input id="login" type="submit">
+      </div>
+    </form> -->
+  </div>
+</template>

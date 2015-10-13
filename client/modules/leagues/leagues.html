@@ -1,0 +1,114 @@
+<template name="leagues">
+  {{templateData}}
+  {{bowlersInLeague}}
+  {{setLotteries}}
+  <div class="wrapper">
+    <div class="left">
+      <div id="league-title">
+        {{leagueName}}:
+      </div>
+      <div class="league-bowlers">
+        <table id="table-leagues" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+              <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Buy a ticket </th>
+              </tr>
+          </thead>
+        {{#each getBowlers}}
+          <tbody>
+            <tr>
+              <td>{{name}}</td>
+              <td>{{id}}</td>
+              <td>
+                <button id="buy-ticket" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                  <i id="{{id}}" class="material-icons">add</i>
+                </button>
+
+              </td>
+            </tr>
+          </tbody>
+        {{/each}}
+        </table>
+      </div>
+    </div>
+    <div class="right">
+      <div class="current-lottery">
+        <p> Current Lottery: </p>
+        <table id="table-leagues" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+              <tr>
+                <th>ID</th>
+                <th>Balance</th>
+              </tr>
+          </thead>
+          {{#each getLotteries}}
+            {{#if payout}}
+            {{else}}
+              <tbody>
+                <tr>
+                  <td>{{id}}</td>
+                  <td>${{balance}}</td>
+                </tr>
+              </tbody>
+            {{/if}}
+          {{/each}}
+        </table>
+        {{#if lotteryWinner}}
+          {{#each getLotteryTickets}}
+            {{#if is_winner}}
+              <p> Winner: {{bowler_id}} </p>
+              <form href="" id="roll" class="{{bowler_id}}">
+                Pins hit? <input type="text" id="pins">
+                <input type="submit">
+              </form>
+            {{/if}}
+          {{/each}}
+        {{else}}
+          <button id="draw-ticket" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Draw a ticket
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+  <div class="right">
+    <div class="all-lotteries">
+      <p> League Lotteries: </p>
+      <table id="table-leagues" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+              <th>ID</th>
+              <th>Balance</th>
+              <th>Payout</th>
+            </tr>
+        </thead>
+        {{#each getLotteries}}
+          <tbody>
+            <tr>
+              <td>{{id}}</td>
+              <td>${{balance}}</td>
+              {{#if payout}}
+                <td> ${{payout}} </td>
+              {{else}}
+                <td> No payout yet </td>
+              {{/if}}
+            </tr>
+          </tbody>
+      {{/each}}
+      </table>
+    </div>
+  </div>
+  <div class="left">
+    <p> Add a bowler to {{leagueName}}: </p>
+    <form id="add-bowler">
+      Bowler id:<input id="bowler-id" type="text">
+      <button id="add" class="mdl-button mdl-js-button ">
+          Add a bowler
+      </button>
+    </form>
+  </div>
+</div>
+</template>
